@@ -210,3 +210,6 @@ pub(super) fn update<B: BlockIo>(
     image(images, device, block.raw())?[offset..offset + raw.len()].copy_from_slice(&raw);
     Ok(())
 }
+
+#[cfg(test)]
+mod tests;

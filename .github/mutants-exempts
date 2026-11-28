@@ -79,6 +79,7 @@ src/disknode/inode.rs:362 # the two set-id bits are distinct, so | and ^ agree
 src/disknode/inode.rs:407 # the two halves of the value do not share bits, so | and ^ agree
 src/disknode/inode.rs:422 # nanoseconds are below 2^30, so they never reach the epoch bits and | and ^ agree
 src/disknode/inode.rs:427 # the epoch bits are only added when set, so | on the mask adds nothing
+src/ext4/grow/resize_inode.rs:68 # the shape check above has already refused a zero double-indirect block, and mounted geometry fixes s_first_data_block at 1 for 1 KiB blocks and 0 otherwise, so the block is never below it; a block equal to it holds the primary superblock, which the system-zone check on line 71 refuses with the same error, so `==` and `<=` decide nothing that `<` does not
 src/ext4/grow/step.rs:162 # the high half of the reserved-block count is zero below 2^32 blocks, and shifting left by 32 then truncating to 32 bits is also zero, so the two give the same value for every filesystem a test can hold in memory
 src/ext4/grow/step.rs:217 # a new group's block bitmap lies below 2^32, so the high half is zero whether it is shifted right, shifted left and truncated, or left at the default
 src/ext4/grow/step.rs:219 # a new group's inode bitmap lies below 2^32, so the high half is zero whether it is shifted right, shifted left and truncated, or left at the default
