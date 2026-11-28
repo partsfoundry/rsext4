@@ -1,4 +1,6 @@
 use super::*;
+
+mod kills;
 use crate::{
     BLOCK_SIZE, Ext4ErrorKind,
     bmalloc::InodeNumber,
